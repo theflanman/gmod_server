@@ -11,6 +11,6 @@ RUN steamcmd \
     +app_update ${APP_ID} validate \
     +quit
 
-COPY --chown=steam:steam garrysmod/* ${SERVER_DIR}/garrysmod/
+COPY garrysmod/* ${SERVER_DIR}/garrysmod/
 
 ENTRYPOINT ${SERVER_DIR}/srcds_run -game garrysmod +maxplayers 12 +map gm_flatgrass +sv_setsteamaccount ${API_KEY} +hostname ${SERVER_NAME} +sv_password ${PASSWORD}
